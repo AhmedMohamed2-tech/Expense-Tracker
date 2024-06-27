@@ -24,12 +24,20 @@ namespace Expense_Tracker
 
         private void BtnQuery_Click(object sender, EventArgs e)
         {
+
             var startDate = dateTimePickerStart.Value.Date;
             var endDate = dateTimePickerEnd.Value.Date;
+            if (startDate > endDate)
+            {
+                MessageBox.Show("End date cannot be earlier than start date.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             var queryResults = CurrentUser.Expenses
+
                 .Where(exp => exp.Date >= startDate && exp.Date <= endDate)
                 .Select(exp => new
                 {
+
                     Date = exp.Date.ToShortDateString(),
                     exp.Category,
                     exp.Amount,
