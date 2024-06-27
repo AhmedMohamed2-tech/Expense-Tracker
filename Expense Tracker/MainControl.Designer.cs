@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainControl));
             this.lblDate = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lblCategory = new System.Windows.Forms.Label();
@@ -29,87 +30,103 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvExpenses = new System.Windows.Forms.DataGridView();
-            this.lblStartDate = new System.Windows.Forms.Label();
-            this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
-            this.lblEndDate = new System.Windows.Forms.Label();
-            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.btnQuery = new System.Windows.Forms.Button();
             this.btnPieChart = new System.Windows.Forms.Button();
             this.btnDownloadReport = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpenses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(20, 20);
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(23, 21);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(36, 15);
+            this.lblDate.Size = new System.Drawing.Size(42, 17);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "Date:";
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(100, 20);
+            this.dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker.Location = new System.Drawing.Point(141, 21);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePicker.Size = new System.Drawing.Size(300, 23);
             this.dateTimePicker.TabIndex = 1;
             // 
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(20, 60);
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Location = new System.Drawing.Point(23, 64);
+            this.lblCategory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(59, 15);
+            this.lblCategory.Size = new System.Drawing.Size(69, 17);
             this.lblCategory.TabIndex = 2;
             this.lblCategory.Text = "Category:";
             // 
             // cmbCategory
             // 
+            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(100, 60);
+            this.cmbCategory.Location = new System.Drawing.Point(141, 64);
+            this.cmbCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(200, 23);
+            this.cmbCategory.Size = new System.Drawing.Size(300, 24);
             this.cmbCategory.TabIndex = 3;
             // 
             // lblAmount
             // 
             this.lblAmount.AutoSize = true;
-            this.lblAmount.Location = new System.Drawing.Point(20, 100);
+            this.lblAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmount.Location = new System.Drawing.Point(23, 107);
+            this.lblAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(53, 15);
+            this.lblAmount.Size = new System.Drawing.Size(60, 17);
             this.lblAmount.TabIndex = 4;
             this.lblAmount.Text = "Amount:";
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(100, 100);
+            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAmount.Location = new System.Drawing.Point(141, 107);
+            this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(200, 23);
+            this.txtAmount.Size = new System.Drawing.Size(300, 23);
             this.txtAmount.TabIndex = 5;
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(20, 140);
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Location = new System.Drawing.Point(23, 149);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(72, 15);
+            this.lblDescription.Size = new System.Drawing.Size(83, 17);
             this.lblDescription.TabIndex = 6;
             this.lblDescription.Text = "Description:";
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(100, 140);
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(141, 149);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(200, 23);
+            this.txtDescription.Size = new System.Drawing.Size(300, 23);
             this.txtDescription.TabIndex = 7;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(20, 180);
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(617, 196);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(107, 54);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add Expense";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -117,9 +134,11 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(120, 180);
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(732, 193);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.Size = new System.Drawing.Size(103, 57);
             this.btnEdit.TabIndex = 9;
             this.btnEdit.Text = "Edit Expense";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -127,9 +146,11 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(220, 180);
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(732, 257);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(103, 54);
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Delete Expense";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -138,49 +159,20 @@
             // dgvExpenses
             // 
             this.dgvExpenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvExpenses.Location = new System.Drawing.Point(20, 220);
+            this.dgvExpenses.Location = new System.Drawing.Point(13, 193);
+            this.dgvExpenses.Margin = new System.Windows.Forms.Padding(4);
             this.dgvExpenses.Name = "dgvExpenses";
             this.dgvExpenses.RowTemplate.Height = 25;
-            this.dgvExpenses.Size = new System.Drawing.Size(600, 200);
+            this.dgvExpenses.Size = new System.Drawing.Size(596, 213);
             this.dgvExpenses.TabIndex = 11;
-            // 
-            // lblStartDate
-            // 
-            this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Location = new System.Drawing.Point(20, 460);
-            this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(64, 15);
-            this.lblStartDate.TabIndex = 12;
-            this.lblStartDate.Text = "Start Date:";
-            // 
-            // dateTimePickerStart
-            // 
-            this.dateTimePickerStart.Location = new System.Drawing.Point(100, 460);
-            this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePickerStart.TabIndex = 13;
-            // 
-            // lblEndDate
-            // 
-            this.lblEndDate.AutoSize = true;
-            this.lblEndDate.Location = new System.Drawing.Point(320, 460);
-            this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(58, 15);
-            this.lblEndDate.TabIndex = 14;
-            this.lblEndDate.Text = "End Date:";
-            // 
-            // dateTimePickerEnd
-            // 
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(400, 460);
-            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePickerEnd.TabIndex = 15;
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(620, 460);
+            this.btnQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuery.Location = new System.Drawing.Point(617, 356);
+            this.btnQuery.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(75, 23);
+            this.btnQuery.Size = new System.Drawing.Size(107, 50);
             this.btnQuery.TabIndex = 16;
             this.btnQuery.Text = "Query";
             this.btnQuery.UseVisualStyleBackColor = true;
@@ -188,9 +180,11 @@
             // 
             // btnPieChart
             // 
-            this.btnPieChart.Location = new System.Drawing.Point(309, 176);
+            this.btnPieChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPieChart.Location = new System.Drawing.Point(617, 257);
+            this.btnPieChart.Margin = new System.Windows.Forms.Padding(4);
             this.btnPieChart.Name = "btnPieChart";
-            this.btnPieChart.Size = new System.Drawing.Size(83, 31);
+            this.btnPieChart.Size = new System.Drawing.Size(107, 54);
             this.btnPieChart.TabIndex = 17;
             this.btnPieChart.Text = "Pie Chart";
             this.btnPieChart.UseVisualStyleBackColor = true;
@@ -198,9 +192,11 @@
             // 
             // btnDownloadReport
             // 
-            this.btnDownloadReport.Location = new System.Drawing.Point(400, 180);
+            this.btnDownloadReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDownloadReport.Location = new System.Drawing.Point(617, 319);
+            this.btnDownloadReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnDownloadReport.Name = "btnDownloadReport";
-            this.btnDownloadReport.Size = new System.Drawing.Size(120, 23);
+            this.btnDownloadReport.Size = new System.Drawing.Size(217, 30);
             this.btnDownloadReport.TabIndex = 18;
             this.btnDownloadReport.Text = "Download Report";
             this.btnDownloadReport.UseVisualStyleBackColor = true;
@@ -208,26 +204,36 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(530, 180);
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(732, 356);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(90, 23);
+            this.btnLogout.Size = new System.Drawing.Size(103, 50);
             this.btnLogout.TabIndex = 19;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(470, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(364, 151);
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnDownloadReport);
             this.Controls.Add(this.btnPieChart);
             this.Controls.Add(this.btnQuery);
-            this.Controls.Add(this.dateTimePickerEnd);
-            this.Controls.Add(this.lblEndDate);
-            this.Controls.Add(this.dateTimePickerStart);
-            this.Controls.Add(this.lblStartDate);
             this.Controls.Add(this.dgvExpenses);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -240,12 +246,15 @@
             this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.lblDate);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainControl";
-            this.Size = new System.Drawing.Size(724, 521);
-            this.Load += new System.EventHandler(this.MainControl_Load);
+            this.Size = new System.Drawing.Size(852, 420);
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpenses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -262,13 +271,10 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgvExpenses;
-        private System.Windows.Forms.Label lblStartDate;
-        private System.Windows.Forms.DateTimePicker dateTimePickerStart;
-        private System.Windows.Forms.Label lblEndDate;
-        private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
         private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.Button btnPieChart;
         private System.Windows.Forms.Button btnDownloadReport;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

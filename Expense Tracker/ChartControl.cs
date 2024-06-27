@@ -2,57 +2,47 @@
 using System.Linq;
 using System.Windows.Forms;
 using LiveCharts;
-using LiveCharts.WinForms;
+using LiveCharts.Wpf;
 
 namespace Expense_Tracker
 {
     public partial class ChartControl : UserControl
     {
+        public User CurrentUser { get; private set; }
         public event EventHandler BackToMain;
-
-        private User currentUser;
 
         public ChartControl(User user)
         {
             InitializeComponent();
-            currentUser = user;
-            InitializeChart();
+            CurrentUser = user;
+            LoadPieChart();
         }
 
-        private void InitializeChart()
+        private void LoadPieChart()
         {
-            var pieChart = new PieChart
-            {
-                Dock = DockStyle.Fill
-            };
-            this.Controls.Add(pieChart);
-
-            var seriesCollection = new SeriesCollection();
-
-            var groupedExpenses = currentUser.Expenses.GroupBy(e => e.Category)
-                                                      .Select(g => new
-                                                      {
-                                                          Category = g.Key,
-                                                          Amount = g.Sum(e => e.Amount)
-                                                      });
-
-            foreach (var group in groupedExpenses)
-            {
-                seriesCollection.Add(new LiveCharts.Wpf.PieSeries
+            var expensesByCategory = CurrentUser.Expenses
+                .GroupBy(exp => exp.Category)
+                .Select(g => new
                 {
-                    Title = group.Category,
-                    Values = new ChartValues<decimal> { group.Amount },
-                    DataLabels = true,
-                    LabelPoint = chartPoint => $"{chartPoint.Y} ({chartPoint.Participation:P})"
+                    Category = g.Key,
+                    Amount = g.Sum(exp => exp.Amount)
+                }).ToList();
+
+            pieChart.Series = new SeriesCollection();
+            foreach (var expense in expensesByCategory)
+            {
+                pieChart.Series.Add(new PieSeries
+                {
+                    Title = expense.Category,
+                    Values = new ChartValues<decimal> { expense.Amount }, // Ensure Amount is treated as decimal
+                    DataLabels = true
                 });
             }
-
-            pieChart.Series = seriesCollection;
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            BackToMain?.Invoke(this, EventArgs.Empty);
+            BackToMain?.Invoke(this, e);
         }
     }
 }

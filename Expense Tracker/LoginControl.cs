@@ -7,9 +7,9 @@ namespace Expense_Tracker
 {
     public partial class LoginControl : UserControl
     {
-        private List<User> users;
+        public event EventHandler<User> LoginSuccess;
 
-        public event EventHandler<User> LoginSuccessful;
+        private List<User> users;
 
         public LoginControl()
         {
@@ -19,13 +19,13 @@ namespace Expense_Tracker
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            var username = txtUsername.Text.ToLower();
+            var username = txtUsername.Text.ToLower(); // Username to lower case
             var password = txtPassword.Text;
 
             var user = users.FirstOrDefault(u => u.Username == username && u.Password == password);
             if (user != null)
             {
-                LoginSuccessful?.Invoke(this, user);
+                LoginSuccess?.Invoke(this, user);
             }
             else
             {
@@ -45,4 +45,5 @@ namespace Expense_Tracker
             mainForm?.LoadPasswordRecoveryControl();
         }
     }
+
 }

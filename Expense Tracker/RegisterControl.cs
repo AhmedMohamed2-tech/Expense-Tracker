@@ -58,10 +58,11 @@ namespace Expense_Tracker
 
         private void AddDummyExpenses(User user)
         {
-            user.Expenses.Add(new Expense { Date = DateTime.Now, Category = "Food", Amount = 50, Description = "Grocery shopping" });
-            user.Expenses.Add(new Expense { Date = DateTime.Now, Category = "Travel", Amount = 20, Description = "Bus ticket" });
-            user.Expenses.Add(new Expense { Date = DateTime.Now, Category = "Utilities", Amount = 100, Description = "Electricity bill" });
-            user.Expenses.Add(new Expense { Date = DateTime.Now, Category = "Entertainment", Amount = 60, Description = "Movie tickets" });
+            user.Expenses.Add(new Expense { Date = DateTime.Now.AddDays (-15), Category = "Food", Amount = 50, Description = "Grocery shopping" });
+            user.Expenses.Add(new Expense { Date = DateTime.Now.AddDays(-25), Category = "Travel", Amount = 20, Description = "Bus ticket" });
+            user.Expenses.Add(new Expense { Date = DateTime.Now.AddDays(-5), Category = "Utilities", Amount = 100, Description = "Electricity bill" });
+            user.Expenses.Add(new Expense { Date = DateTime.Now.AddDays(-35), Category = "Entertainment", Amount = 60, Description = "Movie tickets" });
+            user.Expenses.Add(new Expense { Date = DateTime.Now.AddDays(-50).Date, Category = "Other", Amount = 15, Description = "Gift" });
         }
 
         private void LblBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

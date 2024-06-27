@@ -1,87 +1,97 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Expense_Tracker
 {
     public partial class MainForm : Form
     {
-        public User CurrentUser { get; private set; }
-
         public MainForm()
         {
             InitializeComponent();
+            LoadLoginControl(this, EventArgs.Empty);
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void LoadLoginControl(object sender, EventArgs e)
         {
-            LoadLoginControl();
-        }
-
-        public void LoadLoginControl()
-        {
-            mainPanel.Controls.Clear();
             var loginControl = new LoginControl();
-            loginControl.LoginSuccessful += LoadMainControl;
+            loginControl.Dock = DockStyle.None;
+            loginControl.LoginSuccess += LoadMainControl;
+            Controls.Clear();
+            Controls.Add(loginControl);
             CenterControl(loginControl);
-            mainPanel.Controls.Add(loginControl);
         }
 
         public void LoadRegisterControl()
         {
-            mainPanel.Controls.Clear();
             var registerControl = new RegisterControl();
-            registerControl.RegistrationSuccessful += (s, e) => LoadLoginControl();
-            registerControl.BackToLogin += (s, e) => LoadLoginControl();
+            registerControl.Dock = DockStyle.None;
+            registerControl.BackToLogin += LoadLoginControl;
+            Controls.Clear();
+            Controls.Add(registerControl);
             CenterControl(registerControl);
-            mainPanel.Controls.Add(registerControl);
         }
 
         public void LoadPasswordRecoveryControl()
         {
-            mainPanel.Controls.Clear();
             var passwordRecoveryControl = new PasswordRecoveryControl();
-            passwordRecoveryControl.BackToLogin += (s, e) => LoadLoginControl();
+            passwordRecoveryControl.Dock = DockStyle.None;
+            passwordRecoveryControl.BackToLogin += LoadLoginControl;
+            Controls.Clear();
+            Controls.Add(passwordRecoveryControl);
             CenterControl(passwordRecoveryControl);
-            mainPanel.Controls.Add(passwordRecoveryControl);
         }
 
-        public void LoadMainControl(object sender, User user)
+        private void LoadMainControl(object sender, User user)
         {
-            CurrentUser = user;
-            mainPanel.Controls.Clear();
             var mainControl = new MainControl(user);
-            mainControl.EditExpense += (s, expense) => LoadEditExpenseControl(expense);
-            mainControl.ViewChart += (s, e) => LoadChartControl(user);
-            mainControl.Logout += (s, e) => LoadLoginControl();
+            mainControl.Dock = DockStyle.None;
+            mainControl.EditExpense += LoadEditExpenseControl;
+            mainControl.ViewChart += LoadChartControl;
+            mainControl.QueryData += LoadQueryControl;
+            mainControl.Logout += LoadLoginControl;
+            Controls.Clear();
+            Controls.Add(mainControl);
             CenterControl(mainControl);
-            mainPanel.Controls.Add(mainControl);
         }
 
-        public void LoadEditExpenseControl(Expense expense)
+        private void LoadEditExpenseControl(object sender, Expense expense)
         {
-            mainPanel.Controls.Clear();
-            var editExpenseControl = new EditExpenseControl(expense);
-            editExpenseControl.ExpenseUpdated += (s, e) => LoadMainControl(this, CurrentUser);
-            editExpenseControl.BackToMain += (s, e) => LoadMainControl(this, CurrentUser);
-            CenterControl(editExpenseControl);
-            mainPanel.Controls.Add(editExpenseControl);
+            var mainControl = sender as MainControl;
+            var editControl = new EditExpenseControl(expense, mainControl.CurrentUser);
+            editControl.Dock = DockStyle.None;
+            editControl.BackToMain += (s, ev) => LoadMainControl(sender, mainControl.CurrentUser);
+            Controls.Clear();
+            Controls.Add(editControl);
+            CenterControl(editControl);
         }
 
-        public void LoadChartControl(User user)
+        private void LoadQueryControl(object sender, EventArgs e)
         {
-            mainPanel.Controls.Clear();
-            var chartControl = new ChartControl(user);
-            chartControl.BackToMain += (s, e) => LoadMainControl(this, CurrentUser);
+            var mainControl = sender as MainControl;
+            var queryControl = new QueryControl(mainControl.CurrentUser);
+            queryControl.Dock = DockStyle.None;
+            queryControl.BackToMain += (s, ev) => LoadMainControl(sender, mainControl.CurrentUser);
+            Controls.Clear();
+            Controls.Add(queryControl);
+            CenterControl(queryControl);
+        }
+
+        private void LoadChartControl(object sender, EventArgs e)
+        {
+            var mainControl = sender as MainControl;
+            var chartControl = new ChartControl(mainControl.CurrentUser);
+            chartControl.Dock = DockStyle.None;
+            chartControl.BackToMain += (s, ev) => LoadMainControl(sender, mainControl.CurrentUser);
+            Controls.Clear();
+            Controls.Add(chartControl);
             CenterControl(chartControl);
-            mainPanel.Controls.Add(chartControl);
         }
 
         private void CenterControl(Control control)
         {
-            control.Location = new System.Drawing.Point(
-                (mainPanel.Width - control.Width) / 2,
-                (mainPanel.Height - control.Height) / 2);
-            control.Anchor = AnchorStyles.None;
+            control.Left = (ClientSize.Width - control.Width) / 2;
+            control.Top = (ClientSize.Height - control.Height) / 2;
         }
     }
 }

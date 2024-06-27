@@ -27,20 +27,5 @@ namespace Expense_Tracker
             string json = JsonSerializer.Serialize(users);
             File.WriteAllText(filePath, json);
         }
-
-        public static User GetUserByEmail(string email)
-        {
-            var users = LoadUsers();
-            return users.FirstOrDefault(user => user.Email == email);
-        }
-
-        public static void ExportToCsv(List<Expense> expenses, string filePath)
-        {
-            using (var writer = new StreamWriter(filePath))
-            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-            {
-                csv.WriteRecords(expenses);
-            }
-        }
     }
 }
